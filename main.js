@@ -85,7 +85,6 @@ console.log(typeof z);
 
 console.log('Hello my name is ' + name + ' and I am ' + age + ' year old');
 
-//Template Strings
 //Template Strings - We use back ticks in there, interpolation Method
 
 console.log(`Hello my name is ${name} and I am ${age} year old`);
@@ -160,4 +159,85 @@ console.log(firstName, lastName, city);
 
 // we can add properties later too
 
-person.email = 'johndoe@gmail.com';person.email = 'johndoe@gmail.com';
+person.email = 'johndoe@gmail.com';
+
+//Practice
+
+
+const username = 'Ben';
+const userage = 15;
+const isOriginal = true;
+
+if ( username === 'Ben') {
+  if (userage === 15) {
+    if (isOriginal === true) {
+      console.log('Its Hero Time');
+    } else {
+      console.log('Nice Try');
+    } 
+  } else {
+      console.log('Nice Try');
+    }
+} else {
+      console.log('Nice Try');
+    }
+
+
+    const para = 'I am Learning JavaScript';
+
+    console.log(para);
+    console.log(para.substring(0, 4).toLowerCase(), para.substring(5, 13).toUpperCase(), para.substring(14, 24).split(''));
+   
+
+
+  for (let i = 1; i <= 5; i = i + 1) {
+    console.log(`Count: ${i}`);
+  }
+
+  const myGoals = ['HTML', 'CSS', 'JavaScript', 'ReactJs']
+
+  myGoals[4] = 'Tailwind CSS';
+  myGoals.push('Python');
+  myGoals.unshift('Tally');
+  myGoals.push('coding');
+  myGoals.pop();
+
+  console.log(myGoals);
+  console.log(myGoals[2]);
+  console.log(myGoals[2], myGoals[3]);
+  
+
+  for (let i = 0; i < myGoals.length; i = i + 1) {
+    console.log(`Goal No ${i + 1} : ${myGoals[i]}`);
+  }
+
+  for (let i = 3; i < myGoals.length; i = i + 1) {
+    console.log(` Next Goal No ${i  - 2} : ${myGoals[i]}`);
+  }
+
+
+  for (let i = 0; i < myGoals.length; i = i + 2) {
+    console.log(`Goal No ${i  + 1} : ${myGoals[i]}`);
+  }
+
+
+  for (let i = myGoals.length - 1; i >= 0; i = i - 1) {
+    console.log(`Goal No ${i  + 1} : ${myGoals[i]}`);
+  }
+
+  const hero = {
+    heroName: 'Hulk',
+    realName: 'Bruce Banner',
+    powerRating: 5,
+    powers: ['Hulk Smash', 'Hulk Kick', 'Hulk Slam', 'Hulk Punch', 'Hulk Sheild'],
+    skillSet: {
+      normalAttack: 'Hulk Punch',
+      skill: 'Hulk Sheild',
+      ultimate: 'Hulk Smash'
+    }
+  }
+
+  hero.hate = 'Bruce Banner';
+
+  console.log(hero);
+  console.log(hero.heroName, hero.realName, hero.powers, hero.powers[2], hero.skillSet.ultimate, hero.skillSet);
