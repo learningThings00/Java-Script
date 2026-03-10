@@ -8,3 +8,5 @@ Today i learned about strings,
 numbers, boolean
 and a few functions
 get desired string from array etc.
+
+Day 3 - Today I revised the things i have learned till now and wrote some codes

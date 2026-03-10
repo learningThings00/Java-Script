@@ -86,6 +86,7 @@ console.log(typeof z);
 console.log('Hello my name is ' + name + ' and I am ' + age + ' year old');
 
 //Template Strings
+//Template Strings - We use back ticks in there, interpolation Method
 
 console.log(`Hello my name is ${name} and I am ${age} year old`);
 
@@ -159,4 +160,4 @@ console.log(firstName, lastName, city);
 
 // we can add properties later too
 
-person.email = 'johndoe@gmail.com';
+person.email = 'johndoe@gmail.com';person.email = 'johndoe@gmail.com';
