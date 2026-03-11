@@ -10,3 +10,6 @@ and a few functions
 get desired string from array etc.
 
 Day 3 - Today I revised the things i have learned till now and wrote some codes
+
+Day 4 - Today I learned about variables - const, let. Practical use of variable using an amazon cart example..
+Learned some writing shortcuts too...

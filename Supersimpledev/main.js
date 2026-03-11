@@ -84,3 +84,69 @@ console.log(Math.trunc(upperNum));
 console.log(`25C = ${(25 * 9/5) + 32}F`);
 console.log(`86F = ${(86 - 32) * 5/9}C`)
 console.log(`-5C = ${(-5 * 9/5) + 32}F`)
+
+//Working with strings
+
+const string1 = 'John';
+const space = ' ';
+const string2 = 'Doe';
+
+console.log(`My name is ${string1 + space + string2}`);
+
+const dollar = '$';
+const coffee = 5;
+const bagel = 3;
+
+//concatenation method
+
+console.log('Total cost: $' + coffee + bagel);//if we don't use the brackets js will add all of them like strings so answer will be $53
+
+// to counter this we surround the math part in a bracket to change the order of operation
+
+// the order of operation are
+// 1 (..)
+// 2 * /
+// 3 + -
+console.log('Total cost: $' + (coffee + bagel));
+
+//template method
+
+console.log(`Total cost: ${dollar + (coffee + bagel)}`);
+
+const diffCoffee = 5.99;
+const diffBagel = 2.95;
+const coffeeBill = ((diffCoffee * 100) + diffBagel * 100) / 100;
+//concatenation
+console.log('Total cost : $' + coffeeBill);
+//Template string and interpolation
+// interpolation is a feature of a template string that allows to insert other value inside of the string
+console.log(`Total cost : ${dollar + coffeeBill}`);
+
+// inserting line break \n
+
+console.log(`Total const : ${dollar + coffeeBill}\nThank you, come again`);
+
+  // alert(`Total const : ${dollar + coffeeBill}\n\nThank you, come again`);
+
+  //bill of amazon 
+
+  const billBall = ((2*ball*100) + (2*tShirt*100)) / 100;
+  const sum =  (billBall + (2 * shipping));
+  const taxSum = Math.round(sum * 10) / 100;
+  console.log(`Items (${2*1 + 2*1}): ${dollar + billBall
+  }\nShipping & handling: ${dollar + (2*shipping)}\nTotal before tax: ${dollar + sum}\nEstimate tax(10%): ${dollar + taxSum}\nOrder Total: ${dollar + (sum + taxSum)}`);
+
+  //Variable - three ways to create
+  // when used with let, it change its value after reasigning
+  //when used with const it is much more rigit and can't be changed
+  // var is also a way to create variables but it is not used in newer javaScript due some issues
+  // we must almost always use const cause it reduces the chances of error later.
+
+  let cartQuantity = 0;
+
+  /*writing shortcuts - 
+   x = x + 1 => x++
+   x = x + 2 => x += 2
+   x = x - 1 => x--
+   and so on we can use other signs as well like * / etc*/
+
