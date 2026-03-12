@@ -150,3 +150,68 @@ console.log(`Total const : ${dollar + coffeeBill}\nThank you, come again`);
    x = x - 1 => x--
    and so on we can use other signs as well like * / etc*/
 
+// basic working calculator
+
+let calc = '';
+
+//boolean - represents whether something is true or false
+
+console.log(5 < 6);//gives - true
+console.log(5 > 6);//gives - false
+console.log(typeof true);//gives - boolean
+console.log(typeof 'true');//gives - string, because we used '' it makes it a string
+
+/* COMPARISON OPERATOR
+ > , < , >= , <= , === , == , !==(not equal to) */
+ //comparison operator have lower priority than math operator in order of operation
+ // difference between === and ==
+ // === checks more strictly and the values should be of same data type or else the answer will be false
+ // == checks the value not the data type it assumes all of them as same data type like - 5 == '5.00'
+
+ console.log(5 == '5.00');//gives true
+ console.log(5 === '5');//gives false
+ console.log(5 === 5);//gives true
+
+ // there is also != which has same conversion bhaviour like == thats why we always use === and !== in javaScript
+
+//if statements
+//it is used to get desired output according to false or true statement
+//it runs if code if the statement is true and runs else code if the statement is false
+//else statement is optional
+//we can add as many branches as we want using else if
+
+//if we need to run a single line of code we can remove the {...}from branches but it is best practive to use them either way
+
+if (20 >= 19) {
+  console.log('You can Drive');//this is called a branch
+} else {
+  console.log("You can't Drive");//this is another branch
+}
+
+//Algorithm - a set of steps to complete the task or to solve a problem
+
+//Math.random() - generates a random number between 0 and 1
+//actually 0 <= and < 1
+
+console.log(Math.random());
+
+//logical operator 
+// in order of operation logical operators has lower priority than math and comaparison operator
+//&& (and operator) - checks if both the sides are true
+
+// t && t - t, t && f - f, f && f - f
+
+console.log(500 > 400 && 500 < 600);
+
+//|| (or operator) - checks if atleast one side is true
+
+console.log(true || false);
+
+//! (not operator) - uses only one boolean value and converts it into the operator value
+
+console.log(!true);// gives false
+
+//the names inside the scope is independent of outside the scope, it helps us to avoid naming conflicts
+//to counter this we use an empty string outside of scope of same name
+
+//VAR on the other hand can have the naming conflict inside of scope thats why we don't use var anymore, doesn't follow the rule of scope
