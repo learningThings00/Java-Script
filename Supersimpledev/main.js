@@ -215,3 +215,68 @@ console.log(!true);// gives false
 //to counter this we use an empty string outside of scope of same name
 
 //VAR on the other hand can have the naming conflict inside of scope thats why we don't use var anymore, doesn't follow the rule of scope
+
+/*Falsy Values - the value that behaves like false
+They are - false, 0, NaN, undefined, null, '' (empty string) */
+//Any value that is not falsy is a truthy value
+//Use - we can use truthy or falsy value as shotcuts
+const cartQty = 2;
+if (cartQty) { //here instead of (cartQty > 0) we used (cartQty) as shortcut, if its more than 0 it bahaves truly.
+  console.log('Cart has Products');
+} else {
+  console.log('Cart is empty');
+}
+
+//truthy and falsy value also works with logical operators
+
+console.log(!0);
+
+//NaN - means not a number, we get it when we do some invalid math
+
+console.log('text' / 1);//gives NaN
+
+//undefined - means something that doesn't have a value
+
+let xyz;
+console.log(xyz);//gives undefined
+
+//it only works with let (and var) not with const, with const we have to specify the value of variables as undefined
+
+const yzx = undefined;
+console.log(yzx);
+
+/*Shortcut for If-Statement
+ Ternary operator ? 
+ Guard operator &&
+ Default operator ||
+ */
+
+ //another advantage is we can save the if statement as const directly in all of these shortcuts
+
+
+ //Ternary operator
+
+ true ? 'truthy' : 'falsy';
+ // it's same as - if (true) {'truthy'} else {'falsy'}
+
+ const result = false ? 'truthy' : 'falsy';
+ console.log(result);
+
+ //Guard operator - works as guard for the second statement if the first one is false
+
+ false && console.log('hola');
+
+ // it's same as if (condition) {console.log('Hola')}
+
+ const inbox = 0 && console.log('hello');
+ const inbox1 = 2 && console.log('hola');
+
+ //and and or operator stops early (short circuit) after checking the first statement
+
+// OR operator - used to set a dafault value
+//if (!condition) {currency = 'USD'}
+const currency = 'Yen' || 'USD';
+const currency1 = undefined || 'USD';
+
+console.log(currency);//gives yen
+console.log(currency1);//gives usd
