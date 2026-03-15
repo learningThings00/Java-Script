@@ -280,3 +280,100 @@ const currency1 = undefined || 'USD';
 
 console.log(currency);//gives yen
 console.log(currency1);//gives usd
+
+//Practice
+
+const hours = 17;
+
+if (hours >= 6 && hours < 12) {
+  console.log(`Good morning! ${name}`);
+} else if (hours >= 12 && hours < 17) {
+  console.log(`Good afternoon! ${name}`);
+} else {
+  console.log(`Good night! ${name}`);
+}
+
+const agee = 5;
+isHoliday = false;
+
+const ageOutput = ((agee < 6 && isHoliday === true) ||  (agee > 60 && isHoliday === true)) ?  'Discount' : 'No discount';
+
+console.log(ageOutput);
+
+//long form of this code would be
+
+if ((agee < 6 && isHoliday === true) || (agee > 60 && isHoliday === true)) {
+  console.log(`Discount applied`);
+} else {
+  console.log(`You don't get discount`);
+}
+
+//use of else if in shortcut
+
+const sNo = 100;
+
+if (sNo <= 10) {
+  console.log('You are our priority');
+} else if (sNo <= 100) {
+  console.log('You are our vip customer');
+} else if (sNo <= 1000) {
+  console.log('You are our dear customer');
+}else {
+  console.log('Please co-operate');
+}
+
+//shortcuts
+
+const priority = 
+sNo <= 10 ? 'You are our priority.' :
+sNo <= 100 ? 'You are our vip customer':
+sNo <= 1000 ? 'You are our dear customer': 'Please co-operate';
+
+console.log(priority);
+
+// this can also be written as follows , not used much.
+
+const prt = 
+(sNo <= 10 && 'You are our priority.') ||
+(sNo <= 100 && 'You are our vip customer') ||
+(sNo <= 1000 && 'You are our dear customer') || 'Please co-operate';
+
+console.log(prt);
+
+// head and tails game
+
+const randomMove = Math.random();
+
+let guess = 'Head';
+
+const coinResult = 
+randomMove < 0.5 ? 'Head': 'Tail';
+
+const resCoin = 
+coinResult === guess ? 'You Win' : 'You lose';
+
+console.log(resCoin);
+
+//or 
+
+const cnRes =
+(coinResult === guess && 'You win') || 'You Lose';
+
+console.log(cnRes);
+
+//long form 
+
+let coinFace = '';
+if (randomMove < 0.5) {
+  coinFace = 'Head';
+} else {
+  coinFace = 'Tail';
+}
+
+if (coinFace === guess) {
+  console.log('You win');
+} else {
+  console.log('You lose');
+}
+
+// for multiple outputs it is better to use the normal if else method instead of shortcut operators, they are good for short simple use (tried for amazon cart updated)
