@@ -259,8 +259,8 @@ console.log(yzx);
  true ? 'truthy' : 'falsy';
  // it's same as - if (true) {'truthy'} else {'falsy'}
 
- const result = false ? 'truthy' : 'falsy';
- console.log(result);
+ const result1 = false ? 'truthy' : 'falsy';
+ console.log(result1);
 
  //Guard operator - works as guard for the second statement if the first one is false
 
@@ -377,3 +377,101 @@ if (coinFace === guess) {
 }
 
 // for multiple outputs it is better to use the normal if else method instead of shortcut operators, they are good for short simple use (tried for amazon cart updated)
+
+//FUNCTIONS - let's us reuse the code 
+
+function fn1() {
+  console.log('Hola Amigo');
+  console.log('Hoooolaaaaa!');
+}
+
+fn1();//calling (running / executing) the function
+
+
+//rock paper scissors project (adding functions insted of repeatitive codes) makes updating code easier
+
+      
+      let result = ''; // these are called global variables cause it can be accessed from anywhere in the code
+
+function computerMove() {
+      let computerChoose = '';
+      const randomNum = Math.random();
+
+      if (randomNum >= 0 && randomNum < 1 / 3) {
+        computerChoose = 'Rock';
+      } else if (randomNum >= 1 / 3 && randomNum < 2 / 3) {
+        computerChoose = 'Paper';
+      } else if (randomNum >= 2 / 3 && randomNum < 1) {
+        computerChoose = 'Scissors';
+      }
+
+      return computerChoose; //can use string num calculation VARIBLE or anything that returns a value eg Math.random()
+}
+
+//Return statement - lets us get a value out of a function, when console.log this fn this gives the return in the console, this can also be used in diff ways like we can assign a variable to the return value  
+
+//return; - This will return the value undefined
+
+//When we use return statement it ends the function imedietly.
+
+function return1() {
+  const ab = 456;
+  return  ab;
+}
+console.log(return1());
+
+//PARAMETER - puts value into the function
+
+function costTax(costs) {
+  console.log(costs * 0.1);
+}
+
+costTax(3000);//this is called passing the value into the fn and 3000 part is called argument.
+
+//if fn has a parameter we say - this fn takes a parameter eg fn x(parameter)
+//if the parameter should be a num we say - this fn takes a number eg fn x(costofitem)
+
+//a paremeter only exist inside the scope of the fn
+
+//A fn can have more than one parameters
+
+function costTax(costs, priceTax = 0.1) { // we added = 0.1 to add a default value so that even if we dont add second parameter it takes its default value
+  console.log(costs * priceTax);
+}
+
+costTax(3000, 0.3);
+costTax(5000);
+
+//cleaned the rock paper scissors with the help of parameters and fn
+
+function playGame(playerMove) {
+  const computerChoose = computerMove();
+
+      if (playerMove === 'Rock') {
+        if (computerChoose === 'Rock') {
+        result = 'Draw';
+        } else if (computerChoose === 'Paper'){ 
+        result = 'You Loose';
+        } else if (computerChoose === 'Scissors') {
+          result = 'You Win!';
+        }
+      } else if (playerMove === 'Paper') {
+        if (computerChoose === 'Rock') {
+        result = 'You Win!';
+        } else if (computerChoose === 'Paper') {
+          result = 'Draw';
+        } else if (computerChoose === 'Scissors') {
+          result = 'Your Lose';
+        }
+      } else if (playerMove === 'Scissors') {
+        if (computerChoose === 'Rock') {
+        result = 'You Loose';
+        } else if (computerChoose === 'Paper') {
+          result = 'You Win!';
+        } else if (computerChoose === 'Scissors') {
+          result = 'Draw';
+        }
+      }
+
+      alert(`You choose ${playerMove}, Computer choose ${computerChoose}. ${result}`);
+}

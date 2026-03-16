@@ -75,95 +75,32 @@
 </div>
   <h2>Rock Paper Scissor</h2>
 
-  <button onclick="
-      let computerChoose = '';
-      const randomNum = Math.random();
-      let result = '';
-
-      if (randomNum >= 0 && randomNum < 1 / 3) {
-        computerChoose = 'Rock';
-      } else if (randomNum >= 1 / 3 && randomNum < 2 / 3) {
-        computerChoose = 'Paper';
-      } else if (randomNum >= 2 / 3 && randomNum < 1) {
-        computerChoose = 'Scissors';
-      }
-
-      if (computerChoose === 'Rock') {
-        result = 'Draw';
-      } else if (computerChoose === 'Paper'){ 
-       result = 'You Loose';
-      } else if (computerChoose === 'Scissors') {
-        result = 'You Win!';
-      }
-
-      alert(`Your choose Rock, Computer choose ${computerChoose}. ${result}`);
-  ">Rock</button>
-  <button onclick="
-      let computerChoose = '';
-      const randomNum = Math.random();
-      let result = '';
-      
-      if (randomNum >= 0 && randomNum < 1 /3) {
-        computerChoose = 'Rock';
-      } else if (randomNum >= 1 / 3 && randomNum < 2 / 3) {
-        computerChoose = 'Paper';
-      } else if (randomNum >= 2 / 3 && randomNum < 1) {
-        computerChoose = 'Scissors';
-      }
-
-      if (computerChoose === 'Rock') {
-        result = 'You Win!';
-      } else if (computerChoose === 'Paper') {
-        result = 'Draw';
-      } else if (computerChoose === 'Scissors') {
-        result = 'Your Lose';
-      }
-
-      alert(`You choose Paper, Computer choose ${computerChoose}. ${result}`);
-  ">Paper</button>
-  <button onclick="
-      let computerChoose = '';
-      const randomNum = Math.random();
-      let result = '';
-
-      if (randomNum >= 0 && randomNum < 1 / 3) {
-        computerChoose = 'Rock';
-      } else if (randomNum >= 1 / 3 && randomNum < 2 / 3) {
-        computerChoose = 'Paper';
-      } else if (randomNum >= 2 / 3 && randomNum < 1) {
-        computerChoose = 'Scissors';
-      }
-
-      if (computerChoose === 'Rock') {
-        result = 'You Loose';
-      } else if (computerChoose === 'Paper') {
-        result = 'You Win!';
-      } else if (computerChoose === 'Scissors') {
-        result = 'Draw';
-      }
-
-      alert(`You choose Scissors, Computer choose ${computerChoose}. ${result}`);
-  ">Scissors</button>
+  <button onclick="playGame('Rock');">Rock</button>
+  <button onclick="playGame('Paper');">Paper</button>     
+  <button onclick="playGame('Scissors')">Scissors</button>
 
   <h2>Amazon Cart Practice updated</h2>
   <button onclick="console.log(`Cart Quantity : ${cartQuantity}`)">Show Quantity</button>
   <button onclick="
   cartQuantity >= 10 ? alert('Cart is full') : 
-  (cartQuantity++, console.log(`Cart Quantity : ${cartQuantity}`));">Add to Cart</button>
+  (cartQuantity++,  (cartQuantity > 10 ? cartQuantity = 10 : null), console.log(`Cart Quantity : ${cartQuantity}`));">Add to Cart</button>
   <button onclick="cartQuantity >= 10 ? alert('Cart is full') : 
-  (cartQuantity += 2, console.log(`Cart Quantity : ${cartQuantity}`));">+2</button>
+  (cartQuantity += 2,  (cartQuantity > 10 ? cartQuantity = 10 : null), console.log(`Cart Quantity : ${cartQuantity}`));">+2</button>
   <button onclick="cartQuantity >= 10 ? alert('Cart is full') : 
-  (cartQuantity += 3, console.log(`Cart Quantity : ${cartQuantity}`));">+3</button>
+  (cartQuantity += 3,  (cartQuantity > 10 ? cartQuantity = 10 : null), console.log(`Cart Quantity : ${cartQuantity}`));">+3</button>
   <button onclick="cartQuantity >= 10 ? alert('Cart is full') : 
-  (cartQuantity += 4, console.log(`Cart Quantity : ${cartQuantity}`));">+4
+  (cartQuantity += 4,  (cartQuantity > 10 ? cartQuantity = 10 : null), console.log(`Cart Quantity : ${cartQuantity}`));">+4
   </button>
   <button onclick="cartQuantity >= 10 ? alert('Cart is full') : 
-  (cartQuantity += 5, console.log(`Cart Quantity : ${cartQuantity}`));">+5
+  (cartQuantity += 5, (cartQuantity > 10 ? cartQuantity = 10 : null), console.log(`Cart Quantity : ${cartQuantity}`));">+5
   </button>
   <button onclick=" if (cartQuantity <= 0) {
     alert('Not enough items in Cart') 
   } else {
     cartQuantity--;
+    if (cartQuantity < 0) {
+      cartQuantity = 0
+    }
      console.log(`Cart Quantity : ${cartQuantity}`);
   }">Remove from Cart
   </button>
@@ -171,6 +108,9 @@
     alert('Not enough items in Cart') 
   } else {
     cartQuantity -= 2;
+    if (cartQuantity < 0) {
+      cartQuantity = 0
+    }
      console.log(`Cart Quantity : ${cartQuantity}`);
   }">-2
   </button>
@@ -178,6 +118,9 @@
     alert('Not enough items in Cart') 
   } else {
     cartQuantity -= 3;
+    if (cartQuantity < 0) {
+      cartQuantity = 0
+    }
      console.log(`Cart Quantity : ${cartQuantity}`);
   }">-3
   </button>
