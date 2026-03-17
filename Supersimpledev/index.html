@@ -77,55 +77,8 @@
 
   <button onclick="playGame('Rock');">Rock</button>
   <button onclick="playGame('Paper');">Paper</button>     
-  <button onclick="playGame('Scissors')">Scissors</button>
+  <button onclick="playGame('Scissors');">Scissors</button>
 
-  <h2>Amazon Cart Practice updated</h2>
-  <button onclick="console.log(`Cart Quantity : ${cartQuantity}`)">Show Quantity</button>
-  <button onclick="
-  cartQuantity >= 10 ? alert('Cart is full') : 
-  (cartQuantity++,  (cartQuantity > 10 ? cartQuantity = 10 : null), console.log(`Cart Quantity : ${cartQuantity}`));">Add to Cart</button>
-  <button onclick="cartQuantity >= 10 ? alert('Cart is full') : 
-  (cartQuantity += 2,  (cartQuantity > 10 ? cartQuantity = 10 : null), console.log(`Cart Quantity : ${cartQuantity}`));">+2</button>
-  <button onclick="cartQuantity >= 10 ? alert('Cart is full') : 
-  (cartQuantity += 3,  (cartQuantity > 10 ? cartQuantity = 10 : null), console.log(`Cart Quantity : ${cartQuantity}`));">+3</button>
-  <button onclick="cartQuantity >= 10 ? alert('Cart is full') : 
-  (cartQuantity += 4,  (cartQuantity > 10 ? cartQuantity = 10 : null), console.log(`Cart Quantity : ${cartQuantity}`));">+4
-  </button>
-  <button onclick="cartQuantity >= 10 ? alert('Cart is full') : 
-  (cartQuantity += 5, (cartQuantity > 10 ? cartQuantity = 10 : null), console.log(`Cart Quantity : ${cartQuantity}`));">+5
-  </button>
-  <button onclick=" if (cartQuantity <= 0) {
-    alert('Not enough items in Cart') 
-  } else {
-    cartQuantity--;
-    if (cartQuantity < 0) {
-      cartQuantity = 0
-    }
-     console.log(`Cart Quantity : ${cartQuantity}`);
-  }">Remove from Cart
-  </button>
-  <button onclick=" if (cartQuantity <= 0) {
-    alert('Not enough items in Cart') 
-  } else {
-    cartQuantity -= 2;
-    if (cartQuantity < 0) {
-      cartQuantity = 0
-    }
-     console.log(`Cart Quantity : ${cartQuantity}`);
-  }">-2
-  </button>
-  <button onclick=" if (cartQuantity <= 0) {
-    alert('Not enough items in Cart') 
-  } else {
-    cartQuantity -= 3;
-    if (cartQuantity < 0) {
-      cartQuantity = 0
-    }
-     console.log(`Cart Quantity : ${cartQuantity}`);
-  }">-3
-  </button>
-
-  <button onclick="cartQuantity = 0; console.log('Cart was reset!'); console.log(`Cart Quantity : ${cartQuantity}`)">Reset</button>
-
+  
 </body>
 </html>
