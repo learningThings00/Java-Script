@@ -241,3 +241,39 @@ if ( username === 'Ben') {
 
   console.log(hero);
   console.log(hero.heroName, hero.realName, hero.powers, hero.powers[2], hero.skillSet.ultimate, hero.skillSet);
+
+//arrays
+
+const todos = [
+  {
+    id: 1,
+    text: 'Take out trash',
+    isCompleted: true
+  },
+  {
+    id: 2,
+    text: 'Doing homework',
+    isCompleted: true
+  },
+  {
+    id: 3,
+    text: 'Visit grandma',
+    isCompleted: false
+  }
+];
+
+console.log(todos);
+
+console.log(todos[1].text);
+
+/*JSON
+its a data format, and its used alot in fullstack development in using APIs when you are sending data to a server.
+Its usually sent and received  in JSON format.
+its very similar to object literals
+it has double quote around keys (text, id) and string
+no single quote in JSON*/
+
+//Changing to JSON
+
+const todosJSON = JSON.stringify(todos);
+console.log(todosJSON);
