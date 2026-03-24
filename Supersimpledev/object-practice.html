@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object</title>
+    <style>
+      body {
+        background-color: #222;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      /* Why we use objects
+      -- Make our code more organised ie group related values together
+      -- Let us group multiple values together
+      -- Let us use multiple values together
+      -- Inside object we can save any type of value
+      */
+      const person = {
+        name: "John", // This is called a property value pair
+        age: 32,
+        profession: "programmer",
+        skills: {
+          HTML: true,
+          CSS: true,
+          JavaScript: false,
+        },
+        fun: function fn1() {
+          console.log("This fn is inside an object.");
+        },
+      };
+      //if we access the value that does not exist it will give undefined
+      console.log(person);
+      console.log(person.profession, person.name); //this method is dot notation
+      console.log(person["profession"]); //this is bracket notation
+      //we use bracket notation over dot notation because dot notation does't support - so for the text like user-name  it will give error
+      person.experience = 8; // we can add new property-value pair to an object later
+      person.profession = "Web Developer"; //we can reassign the value to a property
+      console.log(person.profession, person.experience);
+
+      console.log(person.skills.JavaScript); //nested object
+      person.fun();
+
+      console.log(typeof console.log); // gives fn
+      console.log(typeof console); // gives object
+      //log is a fn that is inside console object , it is called method
+      //eg of method -- Math.random()
+
+      //console.log, Math.random etc are called built in objects cause they are privided by language.
+      // More eg we are learn are JSON, localStorage.
+
+      //JSON - javaScript object notation, its a syntax, similar to js object but has less features
+      // JSON does't support single quote and functions
+      //JavaScript object can only understood by Js but JSON can be understood by almost any programming language
+      //we use JSON to send data between computers, store data.
+      //built-in JSON object - helps covert b/w JSON and JavaScript
+      // convert js object to JSON
+
+      console.log(JSON.stringify(person)); //stringify is a method of the object JSON, gives a typeof string
+
+      const jsonString = JSON.stringify(person);
+
+      //convert JSON to js
+
+      console.log(JSON.parse(jsonString));
+
+      //Local storage - used to save vlues more permanently
+      //variable are temporary - if we refresh or close the page, all the valiables are deleted
+
+      // save the value in local storage - localStorage.setItem('name', 'value')
+      //localStorage only support strings
+
+      localStorage.setItem("password", "freefireisatrashgame");
+
+      //get value out of local storeage - localStorage.getItem('name');
+
+      console.log(localStorage.getItem("password")); //even if we refresh or close the page it gives value.
+
+      //NULL - is one of the falsy value in JavaScript
+      //is similar to undefined - both represent if something doesn't have a value
+      //null -- intentionally want something to be empty
+      function f1(name = "there") {
+        return name;
+      }
+      console.log(f1("Ben"));
+      console.log(f1());
+      console.log(f1(null));
+
+      //except object other values also have properties and methods
+
+      console.log("hello".length); //here length is a property. typeof - num
+      console.log("hello".toUpperCase); //here toUpperCase is a method. typeof - fn
+      /* how can string have method and properties
+      it is due the javaScript feature called Auto-Boxing.
+      JavaScript automatically wraps the the string in a special object.
+      Auto-Boxing also works with num, boolean but doesn't work with null and undefined (gives error)*/
+
+      //OBJECTS ARE REFERENCES
+
+      const obj1 = {
+        message: "hello", //actual value created somewhere in memory, obj1 is just a reference (like a shortcut)
+      }; //it works this way to make the language more efficient
+      const obj2 = obj1; //this doesn't make the the copy of the code, it just makes the copy of the reference (COPY BY REFERENCE)
+      obj1.message = "Hola!"; //it also changes the obj2 cause their reference is same and pointion to same source
+      console.log(obj1); //we were able to chage the value even though the obj1 is with const because obj1 contains just a ref that points to the object.
+      console.log(obj2);
+
+      console.log(obj1 === obj2);
+
+      //we can't compare object directly
+
+      const obj3 = {
+        message: "Hola!",
+      };
+      console.log(obj1 === obj3); //this compares the references not the value inside
+      console.log(obj1 == obj2); //this works it doesn't checks strictly
+
+      //shortcut
+      //destructuring - easier way to take properties out of an object
+      const obj4 = {
+        message: "Hello!",
+        greet: "Good morning",
+        descipline: "Wake up",
+      };
+      //const message = obj4.message;
+      //below works game as the code above
+      const { message } = obj4;
+      console.log(message);
+      const { greet, descipline } = obj4;
+      console.log(greet, descipline);
+
+      //shorthand property, shorthand method
+
+      const obj5 = {
+        // message: message
+        message, // works same as above code - shorthand property
+        // greet: function function1() {
+        //   console.log("Ohayo!"); },
+        greet() {
+          // works same as above code - shorthand method
+          console.log("Ohayo!");
+        },
+      };
+
+      obj5.greet();
+    </script>
+  </body>
+</html>
