@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin Guess</title>
+  </head>
+  <body>
+    <button onclick="playGame('heads')">Heads</button>
+    <button onclick="playGame('tails')">Tails</button>
+    <button onclick="reset()">Reset</button>
+    <script>
+      const score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+      };
+
+      function pickComputerMove() {
+        return Math.random() < 1 / 2 ? "heads" : "tails";
+      }
+
+      let result = "";
+
+      function playGame(playerMove) {
+        let computerMove = pickComputerMove();
+        result = playerMove === computerMove ? "You win!" : "You lose.";
+
+        if (result === "You win!") {
+          score.wins += 1;
+        } else {
+          score.losses += 1;
+        }
+
+        localStorage.setItem("score", JSON.stringify(score));
+
+        alert(
+          `You choose ${playerMove}, computer choose ${computerMove}. ${result}\nWins: ${score.wins}, Losses: ${score.losses}`,
+        );
+      }
+
+      function reset() {
+        score.wins = 0;
+        score.losses = 0;
+        localStorage.removeItem("score");
+      }
+    </script>
+  </body>
+</html>

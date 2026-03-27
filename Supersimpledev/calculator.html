@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: black;
+      }
+
+      .calculator {
+        background-color: #222;
+        color: white;
+        width: 300px;
+        border: 1px solid rgb(184, 180, 173);
+        padding: 3px;
+        margin-left: 60px;
+      }
+
+      button {
+        background-color: #333;
+        color: #eee;
+        font-size: 26px;
+        flex: 1;
+        height: 50px;
+        transition: all 0.1s ease-in;
+      }
+
+      button:hover {
+        background-color: #252525;
+      }
+
+      button:active {
+        background-color: #222;
+      }
+
+      p {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <p>
+        <button onclick="calc('1')">1</button>
+        <button onclick="calc('2')">2</button>
+        <button onclick="calc('3')">3</button>
+        <button onclick="calc(' + ')">+</button>
+      </p>
+      <p>
+        <button onclick="calc('4')">4</button>
+        <button onclick="calc('5')">5</button>
+        <button onclick="calc('6')">6</button>
+        <button onclick="calc(' - ')">-</button>
+      </p>
+      <p>
+        <button onclick="calc('7')">7</button>
+        <button onclick="calc('8')">8</button>
+        <button onclick="calc('9')">9</button>
+        <button onclick="calc(' * ')">*</button>
+      </p>
+      <p>
+        <button onclick="calc('.')">.</button>
+        <button onclick="calc('0')">0</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="calc(' / ')">/</button>
+      </p>
+      <p>
+        <button onclick="reset()">C</button>
+      </p>
+    </div>
+    <script>
+      let calculation = localStorage.getItem("calculation") || "";
+      function calc(value) {
+        calculation += value;
+        console.log(calculation);
+        localStorage.setItem("calculation", calculation);
+      }
+
+      function calculate() {
+        calculation = eval(calculation);
+        console.log(calculation);
+      }
+
+      function reset() {
+        calculation = "";
+        console.log(calculation);
+        localStorage.removeItem("calculation");
+      }
+    </script>
+  </body>
+</html>
