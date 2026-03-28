@@ -43,14 +43,19 @@
       function costCalculate() {
         const inputElement = document.querySelector(".js-cost");
         let cost = Number(inputElement.value); //for void elements we use .value cause there is no innerHTML
-        if (cost > 0 && cost < 40) {
+        let finalCost = document.querySelector(".js-final-cost");
+        if (cost <= 0 || isNaN(cost)) {
+          finalCost.innerHTML = "Please enter valid price";
+        } else if (cost < 40) {
           //when ever we get a value from the dom the value will be a string. to convert it to num we use Number()
           //to change a value to string we can use String()
           //if a str contains only num , it is converted to a num if we - * / . on the other hand + makes the num part a str
           //DON'T DO MATH USING NUM ALWAYS CHANGE TO NUM WHEN NEEDED
           cost += 10;
+          finalCost.innerHTML = `$${cost}`;
+        } else {
+          finalCost.innerHTML = `FREE shipping $${cost} only.`;
         }
-        document.querySelector(".js-final-cost").innerHTML = `$${cost}`;
       }
 
       function costCalculateKeydown(event) {
