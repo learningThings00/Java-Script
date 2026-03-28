@@ -7,6 +7,12 @@
     <style>
       body {
         background-color: #222;
+        color: whitesmoke;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      p {
+        height: 20px;
+        font-size: 1.25rem;
       }
     </style>
   </head>
@@ -14,6 +20,10 @@
     <button onclick="playGame('Rock')">Rock</button>
     <button onclick="playGame('Paper')">Paper</button>
     <button onclick="playGame('Scissors')">Scissors</button>
+
+    <p class="js-result"></p>
+    <p class="js-moves"></p>
+    <p class="js-score"></p>
 
     <button onclick="resetScore()">Reset Score</button>
 
@@ -23,7 +33,7 @@
         losses: 0,
         ties: 0,
       }; // we used a default value cause after resets the score object becomes null so we give a default value to it
-
+      updateScore();
       /*
       if (!score) {
       wins: 0,
@@ -84,9 +94,12 @@
 
         localStorage.setItem("score", JSON.stringify(score));
 
-        alert(
-          `You choose ${playerMove}, computer choose ${computerMove}. ${result}\nWins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`,
-        );
+        updateScore();
+
+        document.querySelector(".js-result").innerHTML = result;
+
+        document.querySelector(".js-moves").innerHTML =
+          `You - ${playerMove}, Computer - ${computerMove}`;
       }
 
       function resetScore() {
@@ -94,6 +107,14 @@
         score.losses = 0;
         score.ties = 0;
         localStorage.removeItem("score");
+        updateScore();
+        document.querySelector(".js-result").innerHTML = "";
+        document.querySelector(".js-moves").innerHTML = "";
+      }
+
+      function updateScore() {
+        document.querySelector(".js-score").innerHTML =
+          `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}.`;
       }
     </script>
   </body>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Object</title>
+    <title>Objects</title>
     <style>
       body {
         background-color: #222;
@@ -11,6 +11,8 @@
     </style>
   </head>
   <body>
+    <button>hello</button>
+
     <script>
       /* Why we use objects
       -- Make our code more organised ie group related values together
@@ -261,6 +263,32 @@
         return string;
       }
       console.log(repeatText("Bye", 5));
+
+      //DOM
+
+      //dom is also a built in object of JavaScript called document object
+      //document object and web page is linked together, dom combines js and html together.
+      //document object represents or models the webpage.
+      console.log(document.body); //access to body
+      console.log(document.title); // access to title
+      //inside JavaScript HTML is just an object
+      console.log(typeof document.body);
+
+      //innerHTML is a very useful property that  controls all the HTML inside body.
+      console.log(document.body.innerHTML);
+      //if we change the innerHTML property, it will the HTML inside any element.
+      document.body.innerHTML =
+        '<button>Changed Button</button><button class="js-button">Another button</button>';
+
+      //Method = function saved insode an object
+
+      //document.querySelector(''); method - lets us get any element from the page and put inside the JavaScript.
+      // inside '' we tell which element to select and i will first of that element available on page.
+      //if we want to select  second or other element we can do that by using class selector same as CSS using .
+
+      console.log(document.querySelector("button").innerHTML);
+      let buttonElement = document.querySelector(".js-button"); //usually we end variable name with Element or Elem to make it clear that there is an HTML inside the variable.
+      buttonElement.innerHTML = "Another changed button";
     </script>
   </body>
 </html>

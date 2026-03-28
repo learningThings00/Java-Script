@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <style>
+      body {
+        background-color: #222;
+        color: #ddd;
+        font-size: 1.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>YouTube Subscribe Button</h2>
+    <button onclick="subscribe()" class="js-subscribe-button">Subscribe</button>
+
+    <hr />
+
+    <h2>Amazon Shipping Calculator</h2>
+    <p>Orders under $40 = $10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input
+      class="js-cost"
+      placeholder="Cost of item"
+      onkeydown="costCalculateKeydown(event)"
+    />
+    <button class="js-calculate" onclick="costCalculate()">Calculate</button>
+    <!--similar to onclick, the onkeydown attribute works when any key is pressed we can set a specific key too like enter,
+    clicks and keydowns => events
+    onclick and onkeydown => event listeners
+    some other envent listeners
+    onclick = click
+    onkeydown = key press
+    onscroll = scrolling
+    onmounseenter = hovering over
+    onmouseleave = stop hovering over-->
+    <p class="js-final-cost"></p>
+    <script>
+      //Amazon Shipping
+
+      function costCalculate() {
+        const inputElement = document.querySelector(".js-cost");
+        let cost = Number(inputElement.value); //for void elements we use .value cause there is no innerHTML
+        if (cost > 0 && cost < 40) {
+          //when ever we get a value from the dom the value will be a string. to convert it to num we use Number()
+          //to change a value to string we can use String()
+          //if a str contains only num , it is converted to a num if we - * / . on the other hand + makes the num part a str
+          //DON'T DO MATH USING NUM ALWAYS CHANGE TO NUM WHEN NEEDED
+          cost += 10;
+        }
+        document.querySelector(".js-final-cost").innerHTML = `$${cost}`;
+      }
+
+      function costCalculateKeydown(event) {
+        if (event.key === "Enter") {
+          costCalculate();
+        }
+      }
+
+      //YouTube Subscribe
+
+      function subscribe() {
+        const subscribeElement = document.querySelector(".js-subscribe-button");
+
+        if (subscribeElement.innerHTML === "Subscribe") {
+          subscribeElement.innerHTML = "Subscribed";
+        } else {
+          subscribeElement.innerHTML = "Subscribe";
+        }
+      }
+      //if btn has spaces or new line around text  eg (..> xyx </..) it will not work
+      //to resolve this we can use .innerText - it will give text of element w/o the spaces
+
+      //WINDOW object
+      //the window object represet the whole window of browser including popups, title, body etc.
+      //window.document = document
+      //window.console.log = console.log
+    </script>
+  </body>
+</html>
