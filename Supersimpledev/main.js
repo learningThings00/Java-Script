@@ -475,3 +475,18 @@ function playGame(playerMove) {
 
       alert(`You choose ${playerMove}, Computer choose ${computerChoose}. ${result}`);
 }
+
+// function declaration - it is normal way of writing fn (as we use normally)
+// function expression - in this we store a fn in a variable 
+/* cost add = function(a,b) {
+    return a + b;
+}
+    */
+   //function invocation - when we call a fn using add(); its callled function invocation.
+
+   // arrow fn is similar to fn expression but we use arrows instead of function(), it is shorter way of writing fn expression
+   /*
+   cost add = (a, b) => {
+     return a + b;
+    }
+     */

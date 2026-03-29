@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice</title>
+  </head>
+  <body>
+    <div class="amazon">
+      <h2>Amazon Cart Practice updated</h2>
+      <button onclick="console.log(`Cart Quantity : ${cartQuantity}`)">
+        Show Quantity
+      </button>
+
+      <button onclick="cartUpdate(1)">Add to Cart</button>
+      <button onclick="cartUpdate(2)">+2</button>
+      <button onclick="cartUpdate(3)">+3</button>
+      <button onclick="cartUpdate(4)">+4</button>
+      <button onclick="cartUpdate(5)">+5</button>
+      <button onclick="cartUpdate(-1)">Remove from Cart</button>
+      <button onclick="cartUpdate(-2)">-2</button>
+      <button onclick="cartUpdate(-3)">-3</button>
+
+      <button
+        onclick="
+          cartQuantity = 0;
+          console.log('Cart was reset!');
+          console.log(`Cart Quantity : ${cartQuantity}`);
+        "
+      >
+        Reset
+      </button>
+    </div>
+
+    <div class="calculator">
+      <h2>Updated calculator with fn</h2>
+      <button onclick="calculator('1')">1</button>
+      <button onclick="calculator('2')">2</button>
+      <button onclick="calculator('3')">3</button>
+      <button onclick="calculator(' + ')">+</button>
+      <br />
+      <button onclick="calculator('4')">4</button>
+      <button onclick="calculator('5')">5</button>
+      <button onclick="calculator('6')">6</button>
+      <button onclick="calculator(' - ')">-</button>
+      <br />
+      <button onclick="calculator('7')">7</button>
+      <button onclick="calculator('8')">8</button>
+      <button onclick="calculator('9')">9</button>
+      <button onclick="calculator(' * ')">x</button>
+      <br />
+      <button onclick="calculation = ''">C</button>
+      <button onclick="calculator('0')">0</button>
+      <button
+        onclick="
+          calculation = eval(calculation);
+          console.log(calculation); // don't use eval in real life codes - it can potentially be given harmful code to run.
+        "
+      >
+        =
+      </button>
+      <button onclick="calculation(' / ')">/</button>
+    </div>
+
+    <script>
+      //Cart Quantitty
+
+      let cartQuantity = 0;
+
+      function cartUpdate(cart) {
+        cartQuantity += cart;
+
+        if (cartQuantity > 10) {
+          cartQuantity = 10;
+          console.log("Cart is full");
+        } else if (cartQuantity < 0) {
+          cartQuantity = 0;
+          console.log("No items in cart");
+        }
+
+        console.log(`Cart Quantity : ${cartQuantity}`);
+      }
+
+      //Calculator
+
+      let calculation = "";
+      function calculator(value) {
+        calculation += value;
+        console.log(calculation);
+      }
+
+      //FUNCTION PRACTICE
+
+      //No. 1
+      function sum(x, y) {
+        return x + y;
+      }
+      console.log(sum(3, 5));
+
+      //No. 2
+      function greet(name = "there") {
+        //Here there is a default value
+        return `Hello, ${name}`;
+      }
+      console.log(greet("Ben"));
+      console.log(greet()); //when we call empty fn it gives hello, undefined
+      //to counter this we add a default value to the parameter.
+
+      //No. 3
+      function square(x) {
+        return x * x;
+      }
+      console.log(square(5));
+
+      //No. 4
+      function numType(x) {
+        return x % 2 === 0 ? "Even" : "Odd"; //% (called modulus) gives remainder
+      }
+      console.log(numType(5));
+
+      //No. 5
+      function order(a, b) {
+        return a > b ? a : b;
+      }
+      console.log(order(5, 7));
+
+      //No. 6
+      function calc(x, y, z) {
+        if (y === 0 && z === "/") return "Cannot divide by zero";
+
+        if (z === "+") return `Result is ${x + y}`;
+        if (z === "-") return `Result is ${x - y}`;
+        if (z === "*") return `Result is ${x * y}`;
+        if (z === "/") return `Result is ${x / y}`;
+        if (z === "^") return `Result is ${x ** y}`; //can also use Math.pow(x, y)
+      }
+      console.log(calc(2, 4, "^"));
+
+      //No. 7
+      function totalPrice(cost, qty) {
+        return cost * qty;
+      }
+      console.log(totalPrice(20, 4));
+
+      //No. 8
+      function examResult(marks) {
+        return marks >= 40 ? "Pass" : "Fail";
+      }
+      console.log(examResult(40));
+
+      //No. 9
+      function fullName(firstName, lastName) {
+        return `${firstName} ${lastName}`;
+      }
+      console.log(fullName("Ben", "Tennison"));
+
+      //No, 10
+      function discount(cost, percent) {
+        return cost - cost * (percent / 100);
+      }
+      console.log(discount(500, 20));
+
+      //No. 11
+      function greater(a, b, c) {
+        if (a >= b && a >= c) return a;
+        if (b >= a && b >= c) return b;
+        else c;
+      }
+      console.log(greater(4, 9, 6));
+
+      //No. 12
+      function grade(marks) {
+        return marks >= 90 ? "A" : marks >= 75 ? "B" : marks >= 50 ? "C" : "F";
+      }
+      console.log(grade(95));
+
+      //No. 13
+      function logIn(user, password) {
+        if (user !== "admin") return "User not found";
+        if (password !== 1234) return "Wrong password";
+        return "Login successful";
+      }
+      console.log(logIn("admin", 1234));
+
+      //No. 14
+      function simpleInt(p, r, t) {
+        return (p * r * t) / 100;
+      }
+      console.log(simpleInt(10000, 2, 2));
+
+      //Temperature conversion
+
+      function convertToFahrenheit(celsius) {
+        return (celsius * 9) / 5 + 32;
+      }
+      console.log(convertToFahrenheit(25));
+
+      function convertToCelsius(fahrenheit) {
+        return ((fahrenheit - 32) * 5) / 9;
+      }
+      console.log(convertToCelsius(86));
+
+      function convertTemperature(deg, unit) {
+        if (unit === "C") return `${convertToFahrenheit(deg)}F`;
+        if (unit === "F") return `${convertToCelsius(deg)}C`;
+      }
+      console.log(convertTemperature(25, "C"));
+      console.log(convertTemperature(86, "F"));
+
+      //Length conversion
+
+      function convertLength(length, from, to) {
+        if (from === "miles" && to === "km") {
+          return `${length * 1.6} km`;
+        } else if (from === "km" && to === "miles") {
+          return `${length / 1.6} miles`;
+        } else if (from === "miles" && to === "feets") {
+          return `${length * 5280} ft`;
+        } else if (from === "km" && to === "feets") {
+          return `${length * 3281} ft`;
+        } else if (from === "feets" && to === "miles") {
+          return `${length / 5280} miles`;
+        } else if (from === "feets" && to === "km") {
+          return `${length / 3281} km`;
+        } else if (from === to) {
+          return `${length} ${from}`;
+        } else if (from !== "feets" || from !== "miles" || from !== "km") {
+          return `Invalid unit: ${from}`;
+        }
+      }
+      console.log(convertLength(50, "miles", "km"));
+      console.log(convertLength(32, "km", "miles"));
+      console.log(convertLength(50, "km", "km"));
+      console.log(convertLength(5, "miles", "feets"));
+      console.log(convertLength(5, "km", "feets"));
+      console.log(convertLength(16405, "feets", "km"));
+      console.log(convertLength(5, "lb", "km"));
+    </script>
+  </body>
+</html>

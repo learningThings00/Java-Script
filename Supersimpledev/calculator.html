@@ -12,6 +12,8 @@
 
       body {
         background-color: black;
+        display: flex;
+        justify-content: center;
       }
 
       .calculator {
@@ -20,7 +22,6 @@
         width: 300px;
         border: 1px solid rgb(184, 180, 173);
         padding: 3px;
-        margin-left: 60px;
       }
 
       button {
@@ -43,10 +44,17 @@
       p {
         display: flex;
       }
+      .js-display {
+        height: 40px;
+        font-size: 1.75rem;
+        background-color: #444;
+        color: azure;
+      }
     </style>
   </head>
   <body>
     <div class="calculator">
+      <p class="js-display"></p>
       <p>
         <button onclick="calc('1')">1</button>
         <button onclick="calc('2')">2</button>
@@ -77,22 +85,24 @@
     </div>
     <script>
       let calculation = localStorage.getItem("calculation") || "";
+      const calculateElement = document.querySelector(".js-display");
       function calc(value) {
         calculation += value;
-        console.log(calculation);
+        calculateElement.innerHTML = calculation;
         localStorage.setItem("calculation", calculation);
       }
 
       function calculate() {
         calculation = eval(calculation);
-        console.log(calculation);
+        calculateElement.innerHTML = calculation;
       }
 
       function reset() {
         calculation = "";
-        console.log(calculation);
+        calculateElement.innerHTML = calculation;
         localStorage.removeItem("calculation");
       }
+      calculateElement.innerHTML = calculation;
     </script>
   </body>
 </html>

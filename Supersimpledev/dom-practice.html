@@ -10,6 +10,9 @@
         color: #ddd;
         font-size: 1.25rem;
       }
+      p {
+        height: 20px;
+      }
     </style>
   </head>
   <body>
@@ -37,9 +40,45 @@
     onmounseenter = hovering over
     onmouseleave = stop hovering over-->
     <p class="js-final-cost"></p>
-    <script>
-      //Amazon Shipping
 
+    <hr />
+
+    <button onclick="coinFlip('heads')">heads</button>
+    <button onclick="coinFlip('tails')">tails</button>
+    <p class="js-move">You chose:</p>
+
+    <hr />
+    <input
+      type="text"
+      class="js-name"
+      placeholder="Name"
+      onkeydown="nameKeydown(event)"
+    />
+    <button onclick="pickName()">Submit</button>
+    <p class="js-display-name">Your name is:</p>
+
+    <hr />
+
+    <input
+      type="text"
+      class="js-type"
+      placeholder="Type something"
+      onkeyup="keyUp(event)"
+    />
+    <p class="js-display-type"></p>
+    <script>
+      //YouTube Subscribe
+      function subscribe() {
+        const subscribeElement = document.querySelector(".js-subscribe-button");
+
+        if (subscribeElement.innerHTML === "Subscribe") {
+          subscribeElement.innerHTML = "Subscribed";
+        } else {
+          subscribeElement.innerHTML = "Subscribe";
+        }
+      }
+
+      //Amazon Shipping
       function costCalculate() {
         const inputElement = document.querySelector(".js-cost");
         let cost = Number(inputElement.value); //for void elements we use .value cause there is no innerHTML
@@ -51,7 +90,8 @@
           //to change a value to string we can use String()
           //if a str contains only num , it is converted to a num if we - * / . on the other hand + makes the num part a str
           //DON'T DO MATH USING NUM ALWAYS CHANGE TO NUM WHEN NEEDED
-          cost += 10;
+          //to counter the decimal problem we add the value in cents
+          cost = (cost * 100 + 1000) / 100;
           finalCost.innerHTML = `$${cost}`;
         } else {
           finalCost.innerHTML = `FREE shipping $${cost} only.`;
@@ -64,16 +104,29 @@
         }
       }
 
-      //YouTube Subscribe
+      //coinchose
+      function coinFlip(move) {
+        document.querySelector(".js-move").innerHTML = `You chose: ${move}`;
+      }
 
-      function subscribe() {
-        const subscribeElement = document.querySelector(".js-subscribe-button");
+      //textbox
+      function pickName() {
+        const nameElement = document.querySelector(".js-name");
+        document.querySelector(".js-display-name").innerHTML =
+          `Your name is: ${nameElement.value}`;
+      }
 
-        if (subscribeElement.innerHTML === "Subscribe") {
-          subscribeElement.innerHTML = "Subscribed";
-        } else {
-          subscribeElement.innerHTML = "Subscribe";
+      function nameKeydown(event) {
+        if (event.key === "Enter") {
+          pickName();
         }
+      }
+
+      //Type
+      function keyUp(event) {
+        let typeElement = document.querySelector(".js-type");
+        document.querySelector(".js-display-type").innerHTML =
+          typeElement.value;
       }
       //if btn has spaces or new line around text  eg (..> xyx </..) it will not work
       //to resolve this we can use .innerText - it will give text of element w/o the spaces
