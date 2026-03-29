@@ -4,20 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM</title>
-    <style>
-      body {
-        background-color: #222;
-        color: #ddd;
-        font-size: 1.25rem;
-      }
-      p {
-        height: 20px;
-      }
-    </style>
+    <link rel="stylesheet" href="stylesheets/dom-practice.css" />
   </head>
   <body>
     <h2>YouTube Subscribe Button</h2>
-    <button onclick="subscribe()" class="js-subscribe-button">Subscribe</button>
+    <button onclick="subscribe()" class="js-subscribe-button subscribe-button">
+      Subscribe
+    </button>
 
     <hr />
 
@@ -25,11 +18,13 @@
     <p>Orders under $40 = $10 shipping.</p>
     <p>Orders over $40 = FREE shipping.</p>
     <input
-      class="js-cost"
+      class="js-cost cost-input"
       placeholder="Cost of item"
       onkeydown="costCalculateKeydown(event)"
     />
-    <button class="js-calculate" onclick="costCalculate()">Calculate</button>
+    <button class="js-calculate calculate-button" onclick="costCalculate()">
+      Calculate
+    </button>
     <!--similar to onclick, the onkeydown attribute works when any key is pressed we can set a specific key too like enter,
     clicks and keydowns => events
     onclick and onkeydown => event listeners
@@ -66,75 +61,39 @@
       onkeyup="keyUp(event)"
     />
     <p class="js-display-type"></p>
-    <script>
-      //YouTube Subscribe
-      function subscribe() {
-        const subscribeElement = document.querySelector(".js-subscribe-button");
 
-        if (subscribeElement.innerHTML === "Subscribe") {
-          subscribeElement.innerHTML = "Subscribed";
-        } else {
-          subscribeElement.innerHTML = "Subscribe";
-        }
-      }
+    <hr />
 
-      //Amazon Shipping
-      function costCalculate() {
-        const inputElement = document.querySelector(".js-cost");
-        let cost = Number(inputElement.value); //for void elements we use .value cause there is no innerHTML
-        let finalCost = document.querySelector(".js-final-cost");
-        if (cost <= 0 || isNaN(cost)) {
-          finalCost.innerHTML = "Please enter valid price";
-        } else if (cost < 40) {
-          //when ever we get a value from the dom the value will be a string. to convert it to num we use Number()
-          //to change a value to string we can use String()
-          //if a str contains only num , it is converted to a num if we - * / . on the other hand + makes the num part a str
-          //DON'T DO MATH USING NUM ALWAYS CHANGE TO NUM WHEN NEEDED
-          //to counter the decimal problem we add the value in cents
-          cost = (cost * 100 + 1000) / 100;
-          finalCost.innerHTML = `$${cost}`;
-        } else {
-          finalCost.innerHTML = `FREE shipping $${cost} only.`;
-        }
-      }
+    <button onclick="toggle('.js-gaming')" class="js-gaming toggle-button">
+      Gaming
+    </button>
+    <button onclick="toggle('.js-music')" class="js-music toggle-button">
+      Music
+    </button>
+    <button onclick="toggle('.js-tech')" class="js-tech toggle-button">
+      Tech
+    </button>
 
-      function costCalculateKeydown(event) {
-        if (event.key === "Enter") {
-          costCalculate();
-        }
-      }
+    <hr />
 
-      //coinchose
-      function coinFlip(move) {
-        document.querySelector(".js-move").innerHTML = `You chose: ${move}`;
-      }
-
-      //textbox
-      function pickName() {
-        const nameElement = document.querySelector(".js-name");
-        document.querySelector(".js-display-name").innerHTML =
-          `Your name is: ${nameElement.value}`;
-      }
-
-      function nameKeydown(event) {
-        if (event.key === "Enter") {
-          pickName();
-        }
-      }
-
-      //Type
-      function keyUp(event) {
-        let typeElement = document.querySelector(".js-type");
-        document.querySelector(".js-display-type").innerHTML =
-          typeElement.value;
-      }
-      //if btn has spaces or new line around text  eg (..> xyx </..) it will not work
-      //to resolve this we can use .innerText - it will give text of element w/o the spaces
-
-      //WINDOW object
-      //the window object represet the whole window of browser including popups, title, body etc.
-      //window.document = document
-      //window.console.log = console.log
-    </script>
+    <button
+      onclick="toggle1('.js-gaming-button')"
+      class="js-gaming-button toggle-button"
+    >
+      Gaming
+    </button>
+    <button
+      onclick="toggle1('.js-music-button')"
+      class="js-music-button toggle-button"
+    >
+      Music
+    </button>
+    <button
+      onclick="toggle1('.js-tech-button')"
+      class="js-tech-button toggle-button"
+    >
+      Tech
+    </button>
+    <script src="scripts/dom-practice.js"></script>
   </body>
 </html>

@@ -1,0 +1,56 @@
+body {
+        background-color: #222;
+        color: #ddd;
+        font-size: 1.25rem;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      p {
+        height: 20px;
+      }
+
+      .subscribe-button {
+        background-color: #ddd;
+        color: black;
+        border: none;
+        cursor: pointer;
+        padding: 10px 15px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .is-subscribed {
+        background-color: #444;
+        color: #eee;
+      }
+
+      .cost-input {
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      .calculate-button {
+        padding: 11px 15px;
+        font-size: 18px;
+        background-color: rgb(24, 165, 24);
+        color: rgb(255, 255, 255);
+        border: none;
+        cursor: pointer;
+      }
+
+      .invalid {
+        color: rgb(232, 116, 116);
+      }
+
+      .toggle-button {
+        background-color: #ddd;
+        color: #222;
+        border: none;
+        padding: 10px 15px;
+        font-size: 16px;
+      }
+
+      .is-toggled {
+        background-color: #444;
+        color: wheat;
+      }

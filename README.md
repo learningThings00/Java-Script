@@ -1,6 +1,7 @@
-# Java Script
+# JavaScript
 
 Learning Jave from scratch
+
 Day 1 - Worked with some basics like const, if, let, for, etc.
 
 Day 2 - Working with basics
@@ -36,3 +37,5 @@ Day 13 - Today I learned about objects, added score to rock paper scissors proje
 Day 14 - Today I worked on objects and improved my previous codes using objects...
 
 Day 15 - Today I learned about DOM and using dom improved my previous projects and made 2 new ones...
+
+Day 16 = Today I learned how to combine html css and js, using this i improved my previous codes and made them look attractive. Also organised files and seperated Js CSS and HTML...

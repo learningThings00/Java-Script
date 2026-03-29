@@ -1,0 +1,58 @@
+ * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: black;
+        display: flex;
+        justify-content: center;
+      }
+
+      .calculator {
+        background-color: #222;
+        color: white;
+        width: 300px;
+        border: 1px solid rgb(184, 180, 173);
+        padding: 3px;
+      }
+
+      button {
+        background-color: #333;
+        color: #eee;
+        font-size: 26px;
+        height: 60px;
+        width: 60px;
+        margin: 7px;
+        border-radius: 50%;
+        border: 1px solid #7e7e7e;
+        transition: all 0.1s ease-in;
+      }
+
+      button:hover {
+        background-color: #252525;
+      }
+
+      button:active {
+        background-color: #222;
+      }
+
+      .logic-button {
+        background-color: orange;
+        color: #222;
+      }
+
+      .logic-button:hover {
+        background-color: rgb(170, 115, 13);
+        color: black;
+      }
+
+      p {
+        display: flex;
+      }
+      .js-display {
+        height: 60px;
+        font-size: 2.5rem;
+        background-color: #444;
+        color: azure;
+      }
