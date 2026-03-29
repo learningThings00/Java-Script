@@ -1,6 +1,6 @@
 # JavaScript
 
-Learning Jave from scratch
+Learning JavaScript from scratch
 
 Day 1 - Worked with some basics like const, if, let, for, etc.
 
