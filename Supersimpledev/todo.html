@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todos List</title>
+    <link rel="stylesheet" href="stylesheets/todo.css" />
+  </head>
+  <body>
+    <input
+      type="text"
+      class="js-todo"
+      placeholder="Todo name"
+      onkeydown="addTodoKeydown(event)"
+    />
+    <button onclick="addTodo()">Add</button>
+    <button onclick="del()">delete last todo</button>
+    <div class="js-todo-display"></div>
+    <script src="scripts/todo.js"></script>
+  </body>
+</html>
