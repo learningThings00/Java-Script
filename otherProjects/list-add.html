@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>list</title>
+    <style>
+      body {
+        background-color: #333;
+        color: wheat;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <label for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        class="js-name"
+        placeholder="Name"
+        required
+      />
+    </p>
+    <p>
+      <label for="marks">Marks</label>
+      <input
+        type="number"
+        name="marks"
+        id="marks"
+        class="js-marks"
+        placeholder="marks"
+        required
+      />
+    </p>
+    <button onclick="onClick()">Add</button>
+    <script>
+      const names = [];
+
+      const marks = [];
+
+      const min = 33;
+
+      function onClick() {
+        let addName = document.querySelector(".js-name");
+        let addMarks = document.querySelector(".js-marks");
+        if (!(addName.value === "") && !(addMarks.value === "")) {
+          names.push(addName.value);
+          marks.push(Number(addMarks.value));
+
+          console.log(reportCard(names, marks, min));
+        }
+      }
+
+      function reportCard(nameArr, marksArr, min) {
+        const report = {};
+
+        let newScoreboard = scoreboard(nameArr, marksArr);
+
+        report.all = newScoreboard;
+        report.passing = filterByScore(newScoreboard, min);
+        report.topper = topScorer(newScoreboard);
+        return report;
+      }
+      const scoreboard = (nameArr, marksArr) => {
+        const result = [];
+        for (let i = 0; i < nameArr.length; i++) {
+          const details = {};
+          details.name = nameArr[i];
+          details.score = marksArr[i];
+          result.push(details);
+        }
+        return result;
+      };
+
+      const filterByScore = (arr, min) => {
+        const passed = [];
+        for (let i = 0; i < arr.length; i++) {
+          const value = arr[i].score;
+          if (value >= min) {
+            passed.push(arr[i]);
+          }
+        }
+        return passed;
+      };
+
+      const topScorer = (arr) => {
+        let topScorerName = "";
+        let topScorerMarks = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+          const value = arr[i].score;
+          if (value > topScorerMarks) {
+            topScorerMarks = value;
+            topScorerName = arr[i].name;
+          }
+        }
+        return topScorerName;
+      };
+    </script>
+  </body>
+</html>

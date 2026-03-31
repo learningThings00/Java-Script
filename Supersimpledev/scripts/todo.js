@@ -1,4 +1,4 @@
-const todoList = JSON.parse(localStorage.getItem('todoLog')) || [];
+const todoList = /* JSON.parse(localStorage.getItem('todoLog')) || */ [];
 
 renderTodoList();//render means to display something on the page
 
@@ -6,7 +6,7 @@ function addTodo() {
   const inputElement = document.querySelector('.js-todo');
 
   todoList.push(inputElement.value);
-  localStorage.setItem('todoLog', JSON.stringify(todoList));
+  //localStorage.setItem('todoLog', JSON.stringify(todoList));
   renderTodoList();
   inputElement.value = '';
 }
@@ -30,5 +30,5 @@ for (i = 0; i < todoList.length; i++) {
 //reset i added not working also broke my previous code
 function del() {
   todoList.pop();
-  localStorage.setItem('todoLog', JSON.stringify(todoList));
+  //localStorage.setItem('todoLog', JSON.stringify(todoList));
 }
