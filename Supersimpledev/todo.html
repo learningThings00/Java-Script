@@ -7,15 +7,23 @@
     <link rel="stylesheet" href="stylesheets/todo.css" />
   </head>
   <body>
-    <input
-      type="text"
-      class="js-todo"
-      placeholder="Todo name"
-      onkeydown="addTodoKeydown(event)"
-    />
-    <button onclick="addTodo()">Add</button>
-    <button onclick="del()">delete last todo</button>
-    <div class="js-todo-display"></div>
+    <h1>Todo List</h1>
+    <div class="input-todo-grid">
+      <input
+        type="text"
+        class="js-todo"
+        placeholder="Todo name"
+        onkeydown="addTodoKeydown(event)"
+        required
+      />
+      <input type="date" class="js-todo-date" required />
+      <button onclick="addTodo()" class="add-todo">Add</button>
+    </div>
+    <p class="js-error-display error-message"></p>
+    <div class="js-todo-display display-grid"></div>
+    <button onclick="clearAll()" class="clear-button js-clear-button">
+      Clear All
+    </button>
     <script src="scripts/todo.js"></script>
   </body>
 </html>

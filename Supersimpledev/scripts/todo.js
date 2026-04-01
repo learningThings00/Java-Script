@@ -1,14 +1,45 @@
-const todoList = /* JSON.parse(localStorage.getItem('todoLog')) || */ [];
+let todoList =  JSON.parse(localStorage.getItem('todoLog')) ||  [];
 
 renderTodoList();//render means to display something on the page
 
 function addTodo() {
-  const inputElement = document.querySelector('.js-todo');
+  const nameInputElement = document.querySelector('.js-todo');
+  const name = nameInputElement.value;
 
-  todoList.push(inputElement.value);
-  //localStorage.setItem('todoLog', JSON.stringify(todoList));
+  const dateInputElement = document.querySelector('.js-todo-date');
+  const date = dateInputElement.value;
+
+  const errorMessage = document.querySelector('.js-error-display');
+
+  if (name && date) {
+
+    todoList.push({
+    //shorthand for this is we can use single name instead of name: name(variable). called shorthand property syntax
+    // name: name,
+    // date: date
+    name,
+    date
+  });
+
+  updateLocalStorage();
+
   renderTodoList();
-  inputElement.value = '';
+
+  errorMessage.innerHTML = '';
+
+  nameInputElement.value = '';
+  dateInputElement.value = '';
+
+  } else {
+    if (!name && !date) {
+      errorMessage.innerHTML = 'Enter todo and date first';
+    } else if (!name) {
+      errorMessage.innerHTML = 'Enter todo first';
+    } else {
+      errorMessage.innerHTML = 'Enter date first';
+    }
+  }
+  
 }
 
 function addTodoKeydown(event) {
@@ -20,15 +51,46 @@ function addTodoKeydown(event) {
 //the technique used inside the fn is called generating HTML
 function renderTodoList() {
   let todoListHTML = '';
-for (i = 0; i < todoList.length; i++) {
- const todoValue = todoList[i];
- const todoHTML = `<p>${todoValue}</p>`;
+
+for (let i = 0; i < todoList.length; i++) {
+ const todoObject = todoList[i];
+//  const name = todoObject.name;
+//  const date = todoObject.date;
+ //instead of the code obove we can write it as below - called destructuring
+ const { name, date } = todoObject;
+
+ //we used div instead of p because div is easier to style.
+ const todoHTML = `
+ <div>${name}</div>
+ <div>${date}</div>
+ <button onclick="
+ todoList.splice(${i}, 1);
+ renderTodoList();
+ updateLocalStorage();
+ " class="delete-button">Delete</button>
+ `;
   todoListHTML += todoHTML;
 }
  document.querySelector('.js-todo-display').innerHTML = todoListHTML;
 }
-//reset i added not working also broke my previous code
-function del() {
-  todoList.pop();
-  //localStorage.setItem('todoLog', JSON.stringify(todoList));
+
+function clearAll() {
+  const warning = document.querySelector('.js-clear-button');
+
+  if (warning.innerText === 'Clear All') {
+    warning.innerText = 'Are you sure';
+    setTimeout(() => {
+    warning.innerText = 'Clear All';
+    }, 3000);
+  } else {
+  todoList = [];
+  localStorage.removeItem('todoLog');
+  renderTodoList();
+  warning.innerText = 'Clear All';
+  }
 }
+
+function updateLocalStorage() {
+  localStorage.setItem('todoLog', JSON.stringify(todoList));
+}
+
