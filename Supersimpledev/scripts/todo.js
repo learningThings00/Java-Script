@@ -32,9 +32,9 @@ function addTodo() {
 
   } else {
     if (!name && !date) {
-      errorMessage.innerHTML = 'Enter todo and date first';
+      errorMessage.innerHTML = 'Enter Todo and date first';
     } else if (!name) {
-      errorMessage.innerHTML = 'Enter todo first';
+      errorMessage.innerHTML = 'Enter Todo first';
     } else {
       errorMessage.innerHTML = 'Enter date first';
     }
