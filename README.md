@@ -47,3 +47,5 @@ Day 18 - Today I learned even more about loops and arrays and using this i made 
 Day 19 - Today I completed my arrays and loops lesson. And made a todo list project with localstorage implimented...
 
 Day 20 - Today I worked on loops and arrays and learned about bracket notation use.
+
+Day 21 - Today I learned about advanced functions like setTimeout() setInterval() clearInterval() forEach() etc.. and using these I modified my todo and rock-paper-scissors project.

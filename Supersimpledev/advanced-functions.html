@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Functions</title>
+    <style>
+      body {
+        background-color: #222;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      //advantage of writing the code this way is that - it is easier to read, HOISTING(we can call the fn before it created of declared)
+      greetings();
+      function greetings() {
+        console.log('hello');
+      }
+
+      /*above code is a shortcut for this code below
+      var greetings = function() {
+      console.log('hello');
+      };
+      */
+
+      greetings(); //calling the function
+
+      //Functions are also values - we can save a function inside a variable.
+
+      //below written function is an ANONYMOUS FUNCTION. (fn w/o name);
+      const function1 = function () {
+        console.log('Holaaa');
+      };
+      console.log(function1); //logs the value of variable and run it.
+      console.log(typeof function1);
+      function1();
+      //hoisting doesn't work when we create the fn with variables.
+
+      const obj1 = {
+        num: 2,
+        fun: function () {
+          console.log('Good Morning');
+        }
+      };
+
+      obj1.fun(); //this is called a method (function saved inside an object)
+
+      function display(para) {
+        console.log(para);
+      }
+      display(5); //passing a value into a function.
+
+      function run(param) {
+        param();
+      }
+      run(function () {
+        console.log('this is fn inside a fn.');
+      }); //passing a fn into another fn
+
+      //the fn we passing into the fn is called a callback function
+
+      setTimeout(function () {
+        console.log('Delay 3s');
+      }, 3000);
+      setTimeout(function () {
+        console.log('Delay 4s');
+      }, 4000);
+
+      console.log('value');
+
+      //Asynchronous Code -  computer won't wait for a line to finish before going to next line. it runs in parallel.
+      //Synchronous Code - computer will wait for a line to finish before going to next line.
+
+      //most of the code are synchronous exept some of the features fo JavaScript like setTimeout();
+      //advantage of asychronous code is it doesn't blocks our code for the given time
+
+      setInterval(function () {
+        console.log('Interval 30s');
+      }, 30000);
+      //this setInteval(); fn runs the code inside every 30s , it will KEEP running the fn in future.
+
+      //Looping through an array
+
+      [
+        'Meet Friends',
+        'Visit Grandma',
+        'Do Exercises',
+        'Learn JavaScript'
+      ].forEach(function (value, index) {
+        if (value === 'Do Exercises') {
+          return;
+        }
+
+        console.log(index);
+        console.log(value);
+      });
+
+      //forEach doesn't have continue so we use return to skip the interations.
+
+      //if we need to exit the loop early then it's better to ued for loop using break because it is not easy to exit loop early in forEach loop.
+    </script>
+  </body>
+</html>
