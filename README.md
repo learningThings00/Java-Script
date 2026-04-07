@@ -49,3 +49,5 @@ Day 19 - Today I completed my arrays and loops lesson. And made a todo list proj
 Day 20 - Today I worked on loops and arrays and learned about bracket notation use.
 
 Day 21 - Today I learned about advanced functions like setTimeout() setInterval() clearInterval() forEach() etc.. and using these I modified my todo and rock-paper-scissors project.
+
+Day 22 - Today I learned about more uses of setTimeout() and interval().

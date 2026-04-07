@@ -12,6 +12,11 @@
     </style>
   </head>
   <body>
+    <button class="js-progress-button" onclick="progress()">Start</button>
+    <button onclick="addToCart()">Add to Cart</button>
+    <div class="js-cart-display"></div>
+    <button onclick="addMessage()">Add</button>
+    <button onclick="deleteMessage()">Remove</button>
     <script>
       //advantage of writing the code this way is that - it is easier to read, HOISTING(we can call the fn before it created of declared)
       greetings();
@@ -100,6 +105,97 @@
       //forEach doesn't have continue so we use return to skip the interations.
 
       //if we need to exit the loop early then it's better to ued for loop using break because it is not easy to exit loop early in forEach loop.
+
+      const add = () => {
+        console.log(2 + 3);
+      };
+
+      add();
+      add();
+
+      const runTwice = (fn) => {
+        fn();
+        fn();
+      };
+      runTwice(add);
+
+      runTwice(() => {
+        console.log('12b');
+      });
+
+      const progress = () => {
+        document.querySelector('.js-progress-button').innerText = 'Loading...';
+        setTimeout(() => {
+          document.querySelector('.js-progress-button').innerText = 'Finished!';
+        }, 1000);
+      };
+
+      let timeoutId;
+
+      const addToCart = () => {
+        document.querySelector('.js-cart-display').innerHTML = '<p>Added</p>';
+
+        //this cancels the previous timeout and doesn't remove message quickly.
+
+        clearTimeout(timeoutId);
+
+        timeoutId = setTimeout(() => {
+          document.querySelector('.js-cart-display').innerHTML = '';
+        }, 2000);
+      };
+
+      let message = 1;
+
+      let intervalId;
+
+      let isDisplayingNotification;
+
+      const addMessage = () => {
+        message++;
+        displayNotification();
+      };
+
+      const deleteMessage = () => {
+        if (message > 0) {
+          message--;
+        }
+        if (message === 0) {
+          stopNotification();
+        }
+      };
+
+      displayNotification();
+
+      function displayNotification() {
+        if (isDisplayingNotification) {
+          return;
+        }
+
+        isDisplayingNotification = true;
+
+        intervalId = setInterval(() => {
+          if (document.title === 'Advanced Function') {
+            document.title = `(${message}) New messages`;
+          } else {
+            document.title = 'Advanced Function';
+          }
+        }, 1000);
+      }
+
+      function stopNotification() {
+        isDisplayingNotification = false;
+
+        clearInterval(intervalId);
+        document.title = 'Advanced Function';
+      }
+
+      // setInterval(() => {
+      //   if (document.title === 'Advanced Functions') {
+      //     document.title = `(${message})new message`;
+      //   } else {
+      //     document.title = 'Advanced Functions';
+      //   }
+      // }, 1000);
     </script>
   </body>
 </html>
