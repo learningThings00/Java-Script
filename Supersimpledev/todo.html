@@ -12,12 +12,13 @@
       <input
         type="text"
         class="js-todo"
+        id="todoName"
         placeholder="Todo name"
         onkeydown="addTodoKeydown(event)"
         required
       />
-      <input type="date" class="js-todo-date" required />
-      <button onclick="addTodo()" class="add-todo">Add</button>
+      <input type="date" id="todoDate" class="js-todo-date" required />
+      <button class="add-todo js-add-todo">Add</button>
     </div>
     <p class="js-error-display error-message"></p>
     <div class="js-todo-display display-grid"></div>
