@@ -25,7 +25,7 @@ let score = JSON.parse(localStorage.getItem("score")) || {
         
         isPlaying = true;
 
-        document.querySelector('.js-auto-play-button').innerText = 'Playing...';
+        document.querySelector('.js-auto-play-button').innerText = 'Stop Playing';
         } else {
           clearInterval(intervalId);
           isPlaying = false;
@@ -55,21 +55,37 @@ let score = JSON.parse(localStorage.getItem("score")) || {
       document.querySelector('.js-scissors-button')
       .addEventListener('click', () =>  playGame('scissors'));
 
-      document.querySelector('.js-reset-button')
-      .addEventListener('click', () => resetScore());
-
       document.querySelector('.js-auto-play-button')
       .addEventListener('click', () => autoPlay());
 
+      document.querySelector('.js-reset-button')
+      .addEventListener('click', () => {
+        resetMessage();
+        isVisible = true;
+      });
+      
 
+
+      let isVisible = false;
 
       document.body.addEventListener('keydown', (event) => {
-        if (event.key === 'r') {
+        if (event.key === 'r' && !isVisible) {
           playGame('rock');
-        } else if (event.key === 'p') {
+        } else if (event.key === 'p' && !isVisible) {
           playGame('paper');
-        } else if (event.key === 's') {
+        } else if (event.key === 's' && !isVisible) {
           playGame('scissors');
+        } else if (event.key === 'a'  && !isVisible) {
+          autoPlay();
+        } else if (event.key === 'Backspace') {
+          resetMessage();
+          isVisible = true;
+        } else if (event .key === 'y' && isVisible) {
+          yesAction();
+          isVisible = false;
+        } else if (event.key === 'n' && isVisible) {
+          noAction();
+          isVisible = false;
         }
       });
 
@@ -135,4 +151,34 @@ let score = JSON.parse(localStorage.getItem("score")) || {
       function updateScore() {
         document.querySelector(".js-score").innerHTML =
           `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}.`;
+      }
+
+      function resetMessage() {
+        document.querySelector('.js-confirmation-message').innerHTML = `<div>
+        Are you sure you want to reset the score?
+        </div>
+        <button class="js-yes-button cnfrm-btn">Yes</button>
+        <button class="js-no-button cnfrm-btn">No</button>`;
+
+        document.querySelector('.js-yes-button')
+        .addEventListener('click', () => {
+          yesAction();
+          isVisible = false;
+        });
+
+        document.querySelector('.js-no-button')
+        .addEventListener('click', () => {
+          noAction();
+          isVisible = false;
+        });
+
+      }
+
+      function yesAction() {
+        resetScore();
+        document.querySelector('.js-confirmation-message').innerHTML = '';
+      }
+
+      function noAction() {
+        document.querySelector('.js-confirmation-message').innerHTML = '';
       }

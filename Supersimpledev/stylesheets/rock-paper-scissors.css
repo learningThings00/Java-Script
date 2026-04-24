@@ -45,3 +45,10 @@
         background-color: #eee;
         cursor: pointer;
       }
+
+      .cnfrm-btn {
+        color: black;
+        background-color: white;
+        border: none;
+        padding: 5px 7px;
+      }

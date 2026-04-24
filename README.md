@@ -53,3 +53,5 @@ Day 21 - Today I learned about advanced functions like setTimeout() setInterval(
 Day 22 - Today I learned about more uses of setTimeout() and interval().
 
 Day 23 - Today I revised previous codes and improved my projects especially todo project by adding map and filter to it.
+
+Day 24 - Today I completed whole advanced function and updated rock paper scissors so that keyboard controls can be impimented...

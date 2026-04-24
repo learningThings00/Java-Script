@@ -137,3 +137,4 @@ function clearAll() {
 function updateLocalStorage() {
   localStorage.setItem('todoLog', JSON.stringify(todoList));
 }
+ 
