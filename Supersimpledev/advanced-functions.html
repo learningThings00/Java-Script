@@ -302,7 +302,178 @@
         });
       };
 
-      console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+      const newArr = console.log(
+        removeEgg(['egg', 'apple', 'egg', 'egg', 'ham'])
+      );
+
+      //Reduce method
+
+      const nums = [1, 2, 3, 4, 5, 6];
+
+      const result1 = nums.reduce(
+        (acc, curr) => (curr % 2 === 1 ? acc + curr * curr : acc),
+        0
+      );
+
+      console.log(result1);
+
+      const users = [
+        { name: 'A', age: 17 },
+        { name: 'B', age: 22 },
+        { name: 'C', age: 19 },
+        { name: 'D', age: 15 }
+      ];
+
+      const result2 = users.reduce((acc, curr) => {
+        if (curr.age >= 18) {
+          acc.push(curr.name);
+        }
+        return acc;
+      }, []);
+
+      console.log(result2);
+
+      const words = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple'];
+
+      const newObj = words.reduce((acc, curr) => {
+        if (acc[curr]) {
+          acc[curr]++;
+        } else {
+          acc[curr] = 1;
+        }
+        return acc;
+      }, {});
+      console.log(newObj);
+
+      const orders = [
+        {
+          id: 1,
+          amount: 100,
+          status: 'completed'
+        },
+        {
+          id: 2,
+          amount: 200,
+          status: 'pending'
+        },
+        {
+          id: 3,
+          amount: 300,
+          status: 'completed'
+        },
+        {
+          id: 4,
+          amount: 150,
+          status: 'completed'
+        }
+      ];
+
+      const newObj2 = orders.reduce(
+        (acc, curr) => {
+          if (curr.status === 'completed') {
+            acc.completedOrders.push(curr.id);
+            acc.totalCompletedAmount += curr.amount;
+          }
+          return acc;
+        },
+        {
+          completedOrders: [],
+          totalCompletedAmount: 0
+        }
+      );
+
+      console.log(newObj2);
+
+      const newObj3 = nums.reduce(
+        (acc, curr) => {
+          if (curr % 2 === 0) {
+            acc.even.push(curr);
+          } else {
+            acc.odd.push(curr);
+          }
+          return acc;
+        },
+        {
+          even: [],
+          odd: []
+        }
+      );
+
+      console.log(newObj3);
+
+      const data = [
+        {
+          category: 'food',
+          amount: 100
+        },
+        {
+          category: 'travel',
+          amount: 200
+        },
+        {
+          category: 'food',
+          amount: 50
+        },
+        {
+          category: 'rent',
+          amount: 200
+        }
+      ];
+
+      const newObj4 = data.reduce((acc, curr) => {
+        if (!acc[curr.category]) {
+          acc[curr.category] = 0;
+        }
+        acc[curr.category] += curr.amount;
+        return acc;
+      }, {});
+
+      console.log(newObj4);
+
+      const data1 = [
+        { category: 'food', amount: 100 },
+        { category: 'travel', amount: 200 },
+        { category: 'food', amount: 50 },
+        { category: 'travel', amount: 100 },
+        { category: 'shopping', amount: 300 }
+      ];
+
+      const newObj5 = data1.reduce((acc, curr) => {
+        if (!acc[curr.category]) {
+          acc[curr.category] = { total: 0, count: 0 };
+        }
+        acc[curr.category].total += curr.amount;
+        acc[curr.category].count += 1;
+
+        return acc;
+      }, {});
+
+      console.log(newObj5);
+
+      const newOrders = [
+        { user: 'A', amount: 100 },
+        { user: 'B', amount: 200 },
+        { user: 'A', amount: 50 },
+        { user: 'C', amount: 300 }
+      ];
+
+      const resultObj = newOrders.reduce((acc, curr) => {
+        const { user, amount } = curr;
+
+        if (!acc[user]) {
+          acc[user] = 0;
+        }
+        acc[user] += amount;
+        return acc;
+      }, {});
+
+      const finalObj = Object.entries(resultObj).map(([user, total]) => ({
+        user,
+        total
+      })); //did not understood it yet
+
+      console.log(resultObj);
+      console.log(finalObj);
     </script>
   </body>
 </html>
