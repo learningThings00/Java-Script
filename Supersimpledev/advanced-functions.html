@@ -467,13 +467,116 @@
         return acc;
       }, {});
 
-      const finalObj = Object.entries(resultObj).map(([user, total]) => ({
+      const finalResult = Object.entries(resultObj).map(([user, total]) => ({
         user,
         total
-      })); //did not understood it yet
+      }));
 
       console.log(resultObj);
-      console.log(finalObj);
+      console.log(finalResult);
+
+      const newUsers = [
+        { name: 'A', purchases: [100, 200] },
+        { name: 'B', purchases: [50] },
+        { name: 'C', purchases: [300, 100, 50] }
+      ];
+
+      const purchases = newUsers.map((user) => ({
+        name: user.name,
+        total: user.purchases.reduce((acc, curr) => acc + curr, 0)
+      }));
+
+      const filterPurchases = purchases.filter((user) => user.total > 200);
+
+      console.log(purchases);
+      console.log(filterPurchases);
+
+      const ageVerification = [
+        { name: 'A', age: 25 },
+        { name: 'B', age: 17 },
+        { name: 'C', age: 30 },
+        { name: 'D', age: 15 }
+      ];
+
+      console.log(
+        ageVerification.filter((user) => user.age > 18).map((user) => user.name)
+      );
+
+      console.log(
+        newUsers
+          .filter((user) => {
+            let result = 0;
+            user.purchases.map((value) => (result += value));
+
+            return result > 200;
+          })
+          .map((user) => user.name)
+      );
+
+      const tourData = [
+        { id: 1, category: 'food' },
+        { id: 2, category: 'travel' },
+        { id: 3, category: 'food' }
+      ];
+
+      console.log(
+        tourData.reduce((acc, curr) => {
+          if (!acc[curr.category]) {
+            acc[curr.category] = [];
+          }
+          acc[curr.category].push(curr.id);
+          return acc;
+        }, {})
+      );
+
+      const sqNums = [1, 2, 3, 4, 5, 6];
+
+      console.log(
+        sqNums.filter((value) => value % 2 === 0).map((value) => value * value)
+      );
+
+      console.log(nums.filter((num) => num % 2 === 1).map((num) => num * 2));
+
+      console.log(
+        words.reduce((acc, curr) => {
+          if (!acc[curr]) {
+            acc[curr] = 0;
+          }
+          acc[curr]++;
+          return acc;
+        }, {})
+      );
+
+      const scores1 = [
+        { name: 'A', scores: [10, 20] },
+        { name: 'B', scores: [5, 5] },
+        { name: 'C', scores: [30, 40] }
+      ];
+
+      console.log(
+        scores1
+          .filter(
+            (user) => user.scores.reduce((acc, curr) => acc + curr, 0) > 25
+          )
+          .map((user) => user.name)
+      );
+
+      console.log(
+        nums.reduce(
+          (acc, curr) => {
+            if (curr % 2 === 0) {
+              acc.evenSum += curr;
+            } else {
+              acc.oddSum += curr;
+            }
+            return acc;
+          },
+          {
+            evenSum: 0,
+            oddSum: 0
+          }
+        )
+      );
     </script>
   </body>
 </html>

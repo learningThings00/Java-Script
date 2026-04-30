@@ -57,3 +57,5 @@ Day 23 - Today I revised previous codes and improved my projects especially todo
 Day 24 - Today I completed whole advanced function and updated rock paper scissors so that keyboard controls can be impimented...
 
 Day 25 - Learned about reduce method and its application.
+
+Day 26 - Problems on reduce filter and map method.
